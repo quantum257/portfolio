@@ -1,3 +1,8 @@
+Here is the updated HTML file incorporating all of your requested changes.
+
+The skills section in the hero now uses a clean, text-based layout; the "About Me" section reflects your custom text; and the projects section has been redesigned into a highly professional, line-by-line format with bulleted accomplishments and image placeholders for your Airline project.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +68,7 @@
     #hero {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       padding-top: 80px;
     }
     .hero-left {
@@ -116,6 +121,7 @@
       transition: background 0.2s, transform 0.2s;
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.5s;
+      align-self: flex-start;
     }
     .hero-cta:hover { background: #155448; transform: translateY(-2px); }
 
@@ -131,38 +137,7 @@
     }
     .hero-visual {
       width: 100%;
-      max-width: 380px;
-    }
-    .bar-chart { display: flex; flex-direction: column; gap: 1rem; }
-    .bar-row { display: flex; align-items: center; gap: 1rem; }
-    .bar-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--ink-muted);
-      width: 60px;
-      text-align: right;
-    }
-    .bar-track {
-      flex: 1;
-      height: 6px;
-      background: var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 3px;
-      transform: scaleX(0);
-      transform-origin: left;
-      animation: barGrow 0.8s ease forwards;
-    }
-    .bar-fill:nth-child(1) { animation-delay: 0.8s; }
-    .bar-val {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      width: 36px;
+      max-width: 450px;
     }
     .chart-title {
       font-family: var(--mono);
@@ -170,9 +145,31 @@
       color: var(--ink-muted);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       border-bottom: 1px solid var(--border);
       padding-bottom: 0.75rem;
+    }
+    
+    /* NEW SKILLS OVERVIEW STYLING */
+    .hero-skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .hero-skill-item {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+    .hero-skill-title {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     /* ── SECTION BASE ── */
@@ -200,7 +197,7 @@
     }
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 5rem;
       max-width: 1100px;
       margin: 0 auto;
@@ -208,9 +205,9 @@
     .about-text p {
       color: var(--ink-muted);
       margin-bottom: 1.2rem;
-      font-size: 1rem;
+      font-size: 1.05rem;
     }
-    .about-stats { display: flex; flex-direction: column; gap: 1.5rem; }
+    .about-stats { display: flex; flex-direction: column; gap: 1.5rem; justify-content: center; }
     .stat-item {
       display: flex;
       align-items: baseline;
@@ -271,17 +268,21 @@
       border-radius: 2px;
     }
 
-    /* ── PROJECTS ── */
+    /* ── PROJECTS (LINEAR LAYOUT) ── */
     #projects {
       background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-    .projects-inner { max-width: 1100px; margin: 0 auto; }
-    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .projects-inner { max-width: 1000px; margin: 0 auto; }
+    .projects-list { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 3rem; 
+    }
     .project-card {
       border: 1px solid var(--border);
-      padding: 2rem;
+      padding: 3rem;
       background: var(--bg);
       transition: border-color 0.2s, transform 0.2s;
       position: relative;
@@ -291,7 +292,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0;
-      width: 3px;
+      width: 4px;
       height: 0;
       background: var(--accent);
       transition: height 0.3s ease;
@@ -301,30 +302,87 @@
       border-color: var(--accent);
       transform: translateY(-3px);
     }
-    .project-num {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
+    
+    .project-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .project-title {
       font-family: var(--serif);
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.8rem;
+      color: var(--ink);
     }
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--ink-muted);
-      margin-bottom: 1.25rem;
+    .project-date {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
     }
-    .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .project-tech { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      margin-bottom: 1.5rem; 
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
     .tech-badge {
       font-family: var(--mono);
-      font-size: 0.68rem;
-      padding: 0.2rem 0.55rem;
+      font-size: 0.7rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--surface);
       border: 1px solid var(--border);
       color: var(--ink-muted);
+    }
+    
+    .project-desc-intro {
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+    }
+    .project-bullets {
+      padding-left: 1.2rem;
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+    }
+    .project-bullets li {
+      margin-bottom: 0.6rem;
+      line-height: 1.6;
+    }
+
+    /* IMAGE PLACEHOLDERS */
+    .project-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .img-placeholder {
+      background: var(--surface);
+      border: 1px dashed var(--accent);
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+      transition: background 0.2s;
+    }
+    .img-placeholder:hover {
+      background: var(--accent-light);
+    }
+    .img-placeholder-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
     /* ── CONTACT ── */
@@ -377,11 +435,11 @@
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-    @keyframes barGrow {
-      to { transform: scaleX(1); }
-    }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .project-images { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1.2rem; }
@@ -391,14 +449,14 @@
       section { padding: 4rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 1.5rem; }
+      .project-header-top { flex-direction: column; gap: 0.5rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <span class="nav-logo">SOMYA SRIVASTAVA</span>
   <ul class="nav-links">
@@ -409,7 +467,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-left">
     <p class="hero-tag">↳ Data Analyst & SQL Developer</p>
@@ -423,65 +480,57 @@
   </div>
   <div class="hero-right">
     <div class="hero-visual">
-      <p class="chart-title">// skills_overview.sql</p>
-      <div class="bar-chart">
-        <div class="bar-row">
-          <span class="bar-label">SQL</span>
-          <div class="bar-track"><div class="bar-fill" style="width:95%;animation-delay:0.7s"></div></div>
-          <span class="bar-val">95%</span>
+      <p class="chart-title">// skills_overview.md</p>
+      
+      <div class="hero-skills-list">
+        <div class="hero-skill-item">
+          <span class="hero-skill-title">SQL</span>
+          Joins, Subqueries, Aggregate Functions, CTEs, Window Functions
         </div>
-        <div class="bar-row">
-          <span class="bar-label">Excel</span>
-          <div class="bar-track"><div class="bar-fill" style="width:88%;animation-delay:0.85s"></div></div>
-          <span class="bar-val">88%</span>
+        <div class="hero-skill-item">
+          <span class="hero-skill-title">Python</span>
+          Pandas, NumPy, Data Analysis
         </div>
-        <div class="bar-row">
-          <span class="bar-label">Python</span>
-          <div class="bar-track"><div class="bar-fill" style="width:75%;animation-delay:1.0s"></div></div>
-          <span class="bar-val">75%</span>
+        <div class="hero-skill-item">
+          <span class="hero-skill-title">Power BI</span>
+          Dashboards, Data Visualization, DAX Basics
         </div>
-        <div class="bar-row">
-          <span class="bar-label">Power BI</span>
-          <div class="bar-track"><div class="bar-fill" style="width:80%;animation-delay:1.15s"></div></div>
-          <span class="bar-val">80%</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Tableau</span>
-          <div class="bar-track"><div class="bar-fill" style="width:70%;animation-delay:1.3s"></div></div>
-          <span class="bar-val">70%</span>
+        <div class="hero-skill-item">
+          <span class="hero-skill-title">Excel</span>
+          XLOOKUP, VLOOKUP, Pivot Tables, Charts, Data Cleaning
         </div>
       </div>
+      
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
     <div class="about-text">
       <p class="section-label">01 — About Me</p>
       <h2 class="section-title">A little about<br/>who I am.</h2>
       <p>
-        Hi! I'm <strong>[Your Name]</strong>, a data analyst passionate about transforming complex datasets into actionable insights. I enjoy writing clean SQL queries, building intuitive dashboards, and telling stories through data.
+        Hi I am Somya Srivastava.
       </p>
       <p>
-        I'm currently focused on strengthening my SQL skills and expanding into Python for data analysis. I love solving real-world problems using data — whether that's analysing patient records, sales trends, or business KPIs.
+        Skilled in SQL, Power BI, Excel, and Python with a strong foundation in data analysis and business intelligence. Experienced in building end-to-end analytics projects involving data cleaning, data warehousing, SQL querying, Python-based analysis, and dashboard development using Power BI. 
       </p>
       <p>
-        When I'm not querying databases, you'll find me learning new analytics tools and working on personal data projects.
+        Comfortable working with complex datasets to derive meaningful insights and present them through clear, business-oriented visualizations and reports. Currently seeking opportunities to apply and further develop my analytical and problem-solving skills in an industry environment.
       </p>
     </div>
     <div class="about-stats">
       <div class="stat-item">
         <span class="stat-num">2+</span>
-        <span class="stat-desc">Years working with data & SQL</span>
+        <span class="stat-desc">Years working with data</span>
       </div>
       <div class="stat-item">
-        <span class="stat-num">10+</span>
+        <span class="stat-num">2</span>
         <span class="stat-desc">Projects completed</span>
       </div>
       <div class="stat-item">
-        <span class="stat-num">5+</span>
+        <span class="stat-num">5</span>
         <span class="stat-desc">Tools & technologies</span>
       </div>
       <div class="stat-item">
@@ -492,7 +541,6 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <p class="section-label" style="text-align:center">02 — Skills</p>
   <h2 class="section-title" style="text-align:center">What I work with.</h2>
@@ -561,51 +609,70 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="projects-inner">
     <p class="section-label">03 — Projects</p>
     <h2 class="section-title">Things I've built.</h2>
-    <div class="projects-grid">
+    
+    <div class="projects-list">
+      
       <div class="project-card">
-        <p class="project-num">01 ——</p>
-        <h3 class="project-title">DATA WAREHOUSING PROJECT</h3>
-        <p class="project-desc">
-        Developed a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
-        </p>
-        <div class="project-tech">
-          <span class="tech-badge">SQL Server</span>
-          <span class="tech-badge">draw.io</span>
-          <span class="tech-badge">SSMS</span>
+        <div class="project-header-top">
+          <h3 class="project-title">Airline Pricing & Revenue Intelligence System</h3>
+          <span class="project-date">April 2026 – May 2026</span>
         </div>
-      </div>
-      <div class="project-card">
-        <p class="project-num">02 ——</p>
-        <h3 class="project-title">Airline Pricing and Revenue Intelligence System</h3>
-        <p class="project-desc">
-          End-to-end analytics project analysing 15,000+ domestic flight records across 10 airlines and 380 routes to identify pricing drivers, route 
-competitiveness, and revenue optimisation opportunities.
-•	Designed a star schema in SQL Server normalising 15,000+ rows into 4 relational tables (fact flights + 3 dimensions), eliminating data redundancy and enabling multi-dimensional analysis
-•	Engineered 10+ derived features in Excel including Source, Total_Stops, Price_Per_Minute, and Duration_mins to enrich raw data for downstream analysis
-•	Wrote 10+ SQL queries across 3 complexity tiers — including window functions (RANK, LAG) and CTEs — to surface pricing anomalies, underpriced routes, and airline competitiveness margins
-•	Built a 3-page Power BI dashboard with custom DAX measures including a Route Competitiveness Score, enabling executive-level pricing strategy recommendations
-•	Identified that IndiGo offers the lowest average fare (₹9,174) while Akasa Air commands the highest premium (₹9,478) — a 3.2% market gap suggesting a highly commoditised pricing environment
-•	Trained a Random Forest regression model in Python achieving R² > 0.80 to predict ticket prices; feature importance analysis confirmed stop count as the strongest pricing driver  
-        </p>
+        
         <div class="project-tech">
-          <span class="tech-badge">SQL Server</span>
-          <span class="tech-badge">Power BI</span>
-          <span class="tech-badge">DAX</span>
-          <span class="tech-badge">Python</span>
           <span class="tech-badge">Excel</span>
+          <span class="tech-badge">SQL Server</span>
+          <span class="tech-badge">Power BI (DAX)</span>
+          <span class="tech-badge">Python</span>
+        </div>
+
+        <p class="project-desc-intro">
+          End-to-end analytics project analysing 15,000+ domestic flight records across 10 airlines and 380 routes to identify pricing drivers, route competitiveness, and revenue optimisation opportunities.
+        </p>
+
+        <ul class="project-bullets">
+          <li>Designed a star schema in SQL Server normalising 15,000+ rows into 4 relational tables (fact flights + 3 dimensions), eliminating data redundancy and enabling multi-dimensional analysis.</li>
+          <li>Engineered 10+ derived features in Excel including Source, Total_Stops, Price_Per_Minute, and Duration_mins to enrich raw data for downstream analysis.</li>
+          <li>Wrote 10+ SQL queries across 3 complexity tiers — including window functions (RANK, LAG) and CTEs — to surface pricing anomalies, underpriced routes, and airline competitiveness margins.</li>
+          <li>Built a 3-page Power BI dashboard with custom DAX measures including a Route Competitiveness Score, enabling executive-level pricing strategy recommendations.</li>
+          <li>Identified that IndiGo offers the lowest average fare (₹9,174) while Akasa Air commands the highest premium (₹9,478) — a 3.2% market gap suggesting a highly commoditised pricing environment.</li>
+          <li>Trained a Random Forest regression model in Python achieving R² > 0.80 to predict ticket prices; feature importance analysis confirmed stop count as the strongest pricing driver.</li>
+        </ul>
+
+        <div class="project-images">
+          <div class="img-placeholder">
+            <span class="img-placeholder-icon">📊</span>
+            [ Insert Power BI Dashboard Image Here ]
+          </div>
+          <div class="img-placeholder">
+            <span class="img-placeholder-icon">🗂️</span>
+            [ Insert SQL Star Schema Image Here ]
+          </div>
         </div>
       </div>
+
+      <div class="project-card">
+        <div class="project-header-top">
+          <h3 class="project-title">SQL Data Warehouse Project <span style="font-size: 1rem; font-family: var(--sans); font-weight: 300; color: var(--ink-muted); margin-left: 0.5rem;">(Personal Project)</span></h3>
+          <span class="project-date">May 2026</span>
+        </div>
+        
+        <div class="project-tech">
+          <span class="tech-badge">SQL Server</span>
+        </div>
+
+        <ul class="project-bullets">
+          <li>Developed a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.</li>
+        </ul>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <p class="section-label">04 — Contact</p>
   <h2 class="section-title">Let's connect.</h2>
@@ -613,10 +680,10 @@ competitiveness, and revenue optimisation opportunities.
     Open to opportunities, collaborations, or just a conversation about data.
   </p>
   <div class="contact-links">
-    <a href="ssmsd9794@gmail.com" class="contact-link">
-      ✉ your@email.com
+    <a href="mailto:ssmsd9794@gmail.com" class="contact-link">
+      ✉ Email Me
     </a>
-    <a href="www.linkedin.com/in/somya-srivastava-7386b5225" target="_blank" class="contact-link">
+    <a href="https://www.linkedin.com/in/somya-srivastava-7386b5225" target="_blank" class="contact-link">
       in LinkedIn
     </a>
     <a href="https://github.com/qantum257" target="_blank" class="contact-link">
@@ -625,7 +692,6 @@ competitiveness, and revenue optimisation opportunities.
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>© 2026 SOMYA SRIVASTAVA</span>
   <span>Built with HTML · Hosted on GitHub Pages</span>
@@ -633,3 +699,5 @@ competitiveness, and revenue optimisation opportunities.
 
 </body>
 </html>
+
+```
